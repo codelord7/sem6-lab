@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>Registration form</title>
+<style>
+#form_holder{
+height:auto;
+width:400px;
+margin-left:480px;
+background:#4f4f4f;
+border-radius:7px;
+box-shadow:0px 0px 4px 4px #111;
+}
+#form_subholder{
+height:auto;
+width:300px;
+margin-left:30px;
+
+}
+#username{
+margin-left:20px;
+background:transparent;
+border-radius:7px ;
+}
+#pass{
+margin-left:3px;
+background:transparent;
+border-radius:7px ;}
+#email{
+margin-left:26px;
+background:transparent;
+border-radius:7px ;
+}
+#num{
+background:transparent;
+margin-left:25px;
+border-radius:7px ;
+}
+#country{
+background:transparent;
+margin-left:12px;
+border-radius:5px;
+}
+#submit{
+margin-left:100px;
+height:30px;
+width:40px;
+margin-bottom:10px;
+border-radius:7px;
+}
+</style>
+</head>
+<body>
+<div id="form_holder">
+<h1>Registration Form</h1>
+<div id="form_subholder">
+<i>Userid:</i><input type="text" id="username" /><br><br>
+<i>Password:</i><input type="password" id="pass"/><br><br>
+<i>Email:</i><input type="text" id="email"/><br><br>
+<i>Phone:</i><input type="text" id="num"/><br><br>
+<i>Country:</i><select id="country"><option>choose country</option><option>nepal</option><option>india</option></select><br><br>
+<i>Sex:</i>&nbsp;<input type="checkbox"/><i>male</i>&nbsp;<input type="checkbox"/><i>female</i><br><br>
+<input type="submit" id="submit" value="ok"/>
+</div>
+</div>
+</body>
+</html>
+
+
