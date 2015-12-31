@@ -1,0 +1,21 @@
+<script runat="server">
+sub Session_add(sender as object, e as eventargs)
+Session.("mySession") = text1.value
+span1.innerHTML = "session data updated"<p>
+your session contains:<font color=red>" + session("mySession").ToString() + "</font></p>"
+end sub
+sub checksession(sender as object,e as eventargs)
+if (session("mySession")="") then
+span1.innerHTML = "nothing,session data lost"
+else
+span1.innerHTML = "your session contains:<font color=red>" + session("mySession").ToString()+"</font>"
+end if
+end sub
+</script>
+<form id="form1" runat="server">
+<input id = text1 type=text runat=server>
+<input id=submit1 value="add to session state"type=submit runat=server>
+<input id="submit2" type="submit" runat="server" onServerClick="checksession" value="viewsession"/>
+</form>
+<hr size=1>
+<font size=6><span id=span1 runat=server/></font>
