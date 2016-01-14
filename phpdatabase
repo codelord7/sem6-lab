@@ -1,0 +1,69 @@
+***main file***
+<?php
+	include_once("includes/insert.php");
+	if(isset($_POST['login_btn']))
+	{
+		$username = $_POST['uname'];//it get data from field//
+		$password = $_POST['pass'];
+		
+		$funObj -> insertdata( $username, $password );
+	}
+	if(isset($_SESSION['adminUserId']))
+	{
+		$url = "index.php";
+		$funObj->redirect($url);	
+	}
+?>
+<html>
+<form action="" method="post">
+    <tr >
+    	<th >Administrator Login</th>
+    </tr>
+    
+    <tr>
+    	<td  ></td>
+    </tr>
+    
+    <tr>
+    	<td>Username</td><td ><input type="text" name="uname" id="uname" /></td>
+    </tr>
+    <tr>
+    	<td>Password</td><td><input type="password" name="pass" id="pass" /></td>
+        
+    </tr>
+    <tr>
+    	<td>&nbsp;</td><td><input type="submit" name="login_btn" id="login_btn" value=" Login " /></td>
+    </tr>
+    </form>
+</table>
+</html>
+***Inside insert.php file***
+function insertdata($user,$pass){
+$con = mysqli_connect( HOST, USER, PASS ) or die( "Failed connecting to server " );//host,user field depend on db//
+			mysqli_select_db( $con, DATABASENAME ) or die( "Failed connecting to database ".mysqli_error( $con ) ); 	
+			$sql = "insert into tablename set username=$user and password=$pass ";
+	 mysqli_query( $con, $sql ) or die( "Wrong query ".mysqli_error($con) );
+}
+***data access from database***
+function.php file
+
+function selectdata(){
+$con = mysqli_connect( HOST, USER, PASS ) or die( "Failed connecting to server " );
+			mysqli_select_db( $con, DATABASENAME ) or die( "Failed connecting to database ".mysqli_error( $con ) ); 	
+			$sql = "SELECT * FROM tablename ";
+			$result = mysqli_query( $con, $sql ) or die( "Wrong query ".mysqli_error($con) );//it execute query//
+		return	mysqli_fetch_assoc( $result );
+		}
+	
+	***MAIN FILE***
+<?php
+include_once("function.php");
+$funObj = new function;//create the object 
+$result = $funObj -> selectdata();
+?>
+<html>
+<body>
+username:<?php echo $result['column name'];
+password:<?php echo $result['column name'];
+</body>
+</html>
